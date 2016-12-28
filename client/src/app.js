@@ -7,6 +7,7 @@ export default class App extends React.Component {
             <div>
                 {this.props.children}
                 <Link to="login">Login</Link>
+                <Link to="register">Register</Link>
             </div>
     );
     }

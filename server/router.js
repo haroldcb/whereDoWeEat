@@ -1,11 +1,17 @@
 const express = require('express');
-const _ourController = require('./controllers/_our-controller');
+
+// import controllers
+const _registerController = require('./controllers/_register-controller');
 
 module.exports = function(app) {
-    const apiRoutes = express.Router();
+
+    const userRoutes = express.Router();
 
     //routes will go here
-    apiRoutes.get('/helloworld', _ourController.helloworld);
+    const apiRoutes = express.Router();
+
+    apiRoutes.use('/user', userRoutes);
+    userRoutes.post('/create-new-user', _registerController.RegisterUser);
 
     app.use('/api', apiRoutes);
 };
